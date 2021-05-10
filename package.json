@@ -1,0 +1,14 @@
+{
+  "name": "react-native-nave-typescript",
+  "version": "0.0.5",
+  "description": "React Native Template",
+  "repository": "git@github.com:naveteam/react-native-nave-typescript.git",
+  "author": "Lucas Gabriel <lucas.araujo@nave.rs>",
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "typescript",
+    "template",
+    "boiilerplate"
+  ]
+}
