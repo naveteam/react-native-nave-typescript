@@ -39,8 +39,8 @@ const App: FC = () => {
 export default (): JSX.Element => (
   <ThemeProvider theme={theme}>
     <StatusBar
-      backgroundColor={theme.colors.primary}
-      barStyle="light-content"
+      backgroundColor={theme.colors.secondary}
+      barStyle="dark-content"
     />
 
     <App />
