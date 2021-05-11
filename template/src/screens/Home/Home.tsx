@@ -9,7 +9,7 @@ const Home: FC = () => {
   return (
     <Column alignItems="center" flex={1} justifyContent="center">
       <Text color={colors.primary} variant="regular">
-        Built with react-native-nave-typescrypt
+        Built with react-native-nave-typescript
       </Text>
     </Column>
   );
