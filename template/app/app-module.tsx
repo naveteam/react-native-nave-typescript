@@ -6,10 +6,10 @@ import { ThemeProvider } from 'styled-components/native';
 
 import { theme } from 'app/theme';
 
-import Routes from './Routes';
+import Routes from '../Routes';
 
 if (__DEV__) {
-  import('./ReactotronConfig').then(() => console.log('Reactotron Configured'));
+  import('../ReactotronConfig').then(() => console.log('Reactotron Configured'));
 }
 
 const App: FC = () => {
