@@ -5,3 +5,10 @@
 ```sh
 npx react-native init MyApp --template https://github.com/naveteam/react-native-nave-typescript.git
 ```
+
+### :star: Packages already configured
+
+- Typescript
+- Axios
+- Styled-components
+- React-navigation
