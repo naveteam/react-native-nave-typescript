@@ -28,6 +28,45 @@ Besides of all the things talked in the [nave guide](https://nave.gitlab.io/guid
 4. If you need to create a new component with variants, take a look at the Text component and use the variant prop from the styled-system.
 5. Follow the code pattern and folder standard.
 
+#### :wrench: Running & Testing
+
+To run this template as a app in your environment follow these steps
+
+```sh
+git clone https://github.com/naveteam/react-native-nave-typescript.git
+```
+
+If you use SSH keys on Github
+
+```sh
+git clone git@github.com:naveteam/react-native-nave-typescript.git
+```
+
+```sh
+cd react-native-nave-typescript/template
+```
+
+Create the following files, under the template's directory, with the content on their respective `files.example` file found in this repository
+
+- .prettierrs.js
+- .eslintrc.js
+- .buckconfig
+- .watchmanconfig
+
+Installing the app dependencies
+
+```sh
+yarn && yarn pod-install
+```
+
+Running the application
+
+```sh
+yarn android | ios
+```
+
+In [package.json](https://github.com/naveteam/react-native-nave-typescript/blob/main/template/package.json) on the `scripts` section there are more scripts to manage the application.
+
 Copyright 2019 nave.rs
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
