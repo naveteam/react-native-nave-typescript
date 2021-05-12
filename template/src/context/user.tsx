@@ -2,7 +2,10 @@ import React, { FC, useState, useEffect, useContext, createContext } from 'react
 
 import { getToken, clearToken } from 'src/utils';
 
-interface User {}
+interface User {
+  name: string;
+  id: string;
+}
 
 interface CredentialsParams {
   username: string;
@@ -12,8 +15,6 @@ interface CredentialsParams {
 type ContextProps = {
   user: User | null | undefined;
   isFetchingUser: boolean;
-  isFetchingToken: boolean;
-  setUser: Function;
   login: (credentials: CredentialsParams) => Promise<void>;
   logout: () => void;
 };
@@ -24,7 +25,6 @@ const useUser: () => ContextProps = () => useContext(UserContext);
 
 const UserProvider: FC = ({ children }) => {
   const [isFetchingUser, setIsFetchingUser] = useState<boolean>(true);
-  const [isFetchingToken, setIsFetchingToken] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>();
 
   const fetchUser: () => Promise<void> = async () => {
@@ -66,9 +66,7 @@ const UserProvider: FC = ({ children }) => {
     <UserContext.Provider
       value={{
         user,
-        setUser,
         isFetchingUser,
-        isFetchingToken,
         login,
         logout
       }}

@@ -25,7 +25,6 @@ interface TextComponentProps
     PositionProps,
     TextProps {
   variant?: TextVariants;
-  as?: any;
 }
 
 const TextComponent: FC<TextComponentProps> = styled.Text<TextComponentProps>(
