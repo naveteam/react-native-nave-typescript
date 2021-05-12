@@ -1,20 +1,20 @@
-import React, { FC } from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import React, { FC } from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 
 const { Navigator, Screen } = createStackNavigator();
 
-import { Home } from "src/screens";
+import { Home } from 'src/screens';
 
-import { theme } from "src/theme";
+import { theme } from 'src/theme';
 
 const ScreenOptions = () => ({
   cardStyle: { backgroundColor: theme.colors.secondary, paddingHorizontal: 16 },
-  headerShown: false,
+  headerShown: false
 });
 
 const Routes: FC = () => (
   <Navigator screenOptions={ScreenOptions}>
-    <Screen name="Home" component={Home} />
+    <Screen name='Home' component={Home} />
   </Navigator>
 );
 

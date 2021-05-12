@@ -1,16 +1,16 @@
-import React, { FC, useMemo } from "react";
-import { TouchableOpacityProps, ActivityIndicator } from "react-native";
-import { variant, space, layout } from "styled-system";
-import { useTheme } from "@react-navigation/native";
-import styled from "styled-components/native";
+import React, { FC, useMemo } from 'react';
+import { TouchableOpacityProps, ActivityIndicator } from 'react-native';
+import { variant, space, layout } from 'styled-system';
+import { useTheme } from '@react-navigation/native';
+import styled from 'styled-components/native';
 
-import { ColumnProps, Text, Row } from "src/components";
+import { ColumnProps, Text, Row } from 'src/components';
 
-const PRIMARY = "primary";
-const SECONDARY = "secondary";
-const DISABLED = "disabled";
+const PRIMARY = 'primary';
+const SECONDARY = 'secondary';
+const DISABLED = 'disabled';
 
-type ButtonVariants = "primary" | "secondary" | "disabled";
+type ButtonVariants = 'primary' | 'secondary' | 'disabled';
 
 interface ButtonComponent extends ColumnProps, TouchableOpacityProps {
   text: string;
@@ -24,13 +24,7 @@ interface StyledButton extends TouchableOpacityProps {
   variant?: ButtonVariants;
 }
 
-const Button: FC<ButtonComponent> = ({
-  text,
-  variant,
-  disabled,
-  loading,
-  ...props
-}) => {
+const Button: FC<ButtonComponent> = ({ text, variant, disabled, loading, ...props }) => {
   const { colors } = useTheme();
 
   const textColor = useMemo(() => {
@@ -40,16 +34,12 @@ const Button: FC<ButtonComponent> = ({
   }, [variant, colors]);
 
   return (
-    <StyledButton
-      variant={disabled ? "disabled" : variant}
-      disabled={disabled}
-      {...props}
-    >
-      {loading && <ActivityIndicator size="small" color={textColor} />}
+    <StyledButton variant={disabled ? 'disabled' : variant} disabled={disabled} {...props}>
+      {loading && <ActivityIndicator size='small' color={textColor} />}
 
       {!loading && (
-        <Row alignItems="center" justifyContent="center">
-          <Text variant="small" fontWeight={700} color={textColor}>
+        <Row alignItems='center' justifyContent='center'>
+          <Text variant='small' fontWeight={700} color={textColor}>
             {text}
           </Text>
         </Row>
@@ -62,18 +52,18 @@ const StyledButton: FC<StyledButton> = styled.TouchableOpacity(
   variant({
     variants: {
       [PRIMARY]: {
-        backgroundColor: "secondary",
-        borderColor: "secondary",
+        backgroundColor: 'secondary',
+        borderColor: 'secondary'
       },
       [SECONDARY]: {
-        backgroundColor: "transparent",
-        borderColor: "secondary",
+        backgroundColor: 'transparent',
+        borderColor: 'secondary'
       },
       [DISABLED]: {
-        backgroundColor: "gray.n400",
-        borderColor: "gray.n400",
-      },
-    },
+        backgroundColor: 'gray.n400',
+        borderColor: 'gray.n400'
+      }
+    }
   }),
   `
     padding: 8px;
@@ -88,7 +78,7 @@ const StyledButton: FC<StyledButton> = styled.TouchableOpacity(
 );
 
 Button.defaultProps = {
-  variant: "primary",
+  variant: 'primary'
 };
 
 export default Button;
