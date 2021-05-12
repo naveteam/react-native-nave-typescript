@@ -62,9 +62,6 @@
       "jsx",
       "json",
       "node"
-    ],
-    "setupFiles": [
-      "./__tests__/jestSetupFile.js"
     ]
   }
 }
