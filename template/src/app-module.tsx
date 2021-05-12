@@ -8,6 +8,8 @@ import {
 } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components/native";
 
+import { AppProviders } from "src/context";
+
 import { theme } from "src/theme";
 
 import Routes from "../Routes";
@@ -38,11 +40,13 @@ const App: FC = () => {
 
 export default (): JSX.Element => (
   <ThemeProvider theme={theme}>
-    <StatusBar
-      backgroundColor={theme.colors.secondary}
-      barStyle="dark-content"
-    />
+    <AppProviders>
+      <StatusBar
+        backgroundColor={theme.colors.secondary}
+        barStyle="dark-content"
+      />
 
-    <App />
+      <App />
+    </AppProviders>
   </ThemeProvider>
 );
