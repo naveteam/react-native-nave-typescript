@@ -1,17 +1,7 @@
-import React, { ReactNode } from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
-import { ThemeProvider } from 'styled-components/native';
-
-import { theme } from 'src/theme';
+import React from 'react';
+import { render, fireEvent } from '../test-utils';
 
 import { Button } from 'src/components';
-
-interface Props {
-  children: ReactNode;
-}
-
-// MockTheme to handle styled-system properties as margin, colors etc on tests
-const MockTheme = ({ children }: Props) => <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 
 describe('Button', () => {
   const buttonText = 'Test button';
@@ -19,11 +9,7 @@ describe('Button', () => {
 
   const onPress = jest.fn();
 
-  const MockButton = (
-    <MockTheme>
-      <Button testID={buttonTestID} text={buttonText} onPress={onPress} />
-    </MockTheme>
-  );
+  const MockButton = <Button testID={buttonTestID} text={buttonText} onPress={onPress} />;
 
   it('Should render a button, and matches with snapshot', () => {
     const { toJSON } = render(MockButton);
