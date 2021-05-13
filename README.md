@@ -5,7 +5,7 @@
 ## :arrow_forward: Usage
 
 ```sh
-npx react-native init MyApp --template https://github.com/naveteam/react-native-nave-typescript.git
+npx react-native init MyApp --template react-native-template-nave-typescript
 ```
 
 ### :star: Packages already configured
