@@ -1,14 +1,25 @@
 {
-  "name": "react-native-nave-typescript",
-  "version": "0.0.5",
-  "description": "React Native Template",
-  "repository": "git@github.com:naveteam/react-native-nave-typescript.git",
-  "author": "Lucas Gabriel <lucas.araujo@nave.rs>",
-  "license": "MIT",
+  "name": "react-native-template-nave-typescript",
+  "version": "0.0.2",
+  "description": "React Native Template for a quick start with typescript, styled-components, styled-system, axios and other features",
+  "files": [
+    "template",
+    "template.config.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveteam/react-native-nave-typescript.git"
+  },
   "keywords": [
     "react-native",
     "typescript",
     "template",
-    "boiilerplate"
-  ]
+    "boilerplate"
+  ],
+  "author": "Lucas Gabriel <lucas.araujo@nave.rs>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naveteam/react-native-nave-typescript/issues"
+  },
+  "homepage": "https://github.com/naveteam/react-native-nave-typescript#readme"
 }

@@ -1,11 +1,11 @@
-# :rocket: react-native-nave-typescript
+# :rocket: React Native Template Nave Typescript
 
-React Native Nave Typescript Template
+> React Native Template for a quick start with typescript and other features
 
 ## :arrow_forward: Usage
 
 ```sh
-npx react-native init MyApp --template https://github.com/naveteam/react-native-nave-typescript.git
+npx react-native init MyApp --template react-native-template-nave-typescript
 ```
 
 ### :star: Packages already configured
