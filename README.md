@@ -10,12 +10,13 @@ npx react-native init MyApp --template react-native-template-nave-typescript
 
 ### :star: Packages already configured
 
-- Typescript
-- Axios
-- Module resolver
-- Styled-components
-- React-navigation
-- Reactotron
+- [Typescript](https://www.typescriptlang.org/)
+- [Axios](https://github.com/axios/axios)
+- [Module resolver](https://www.npmjs.com/package/eslint-plugin-import)
+- [Styled-components](https://styled-components.com/)
+- [https://reactnavigation.org/React-navigation](https://reactnavigation.org/)
+- [https://github.com/infinitered/reactotronReactotron](https://github.com/infinitered/reactotron)
+- [https://github.com/oblador/react-native-vector-iconsReact-Native-Vector-Icons](https://github.com/oblador/react-native-vector-icons)
 
 
 #### :computer: Code pattern
