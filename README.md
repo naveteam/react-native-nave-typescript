@@ -8,17 +8,18 @@
 npx react-native init MyApp --template react-native-template-nave-typescript
 ```
 
-### :star: Packages already configured
+## :star: Packages already configured
 
-- Typescript
-- Axios
-- Module resolver
-- Styled-components
-- React-navigation
-- Reactotron
+- [Typescript](https://github.com/microsoft/TypeScript)
+- [Axios](https://github.com/axios/axios)
+- [Module resolver](https://github.com/benmosher/eslint-plugin-import)
+- [Styled-components](https://styled-components.com/)
+- [React-navigation](https://github.com/styled-components)
+- [Reactotron](https://github.com/infinitered/reactotron)
+- [React-Native-Vector-Icons](https://github.com/oblador/react-native-vector-icons)
 
 
-#### :computer: Code pattern
+## :computer: Code pattern
 
 Besides of all the things talked in the [nave guide](https://nave.gitlab.io/guides/nave/code-guide/), as import standards and best practices using Javascript, there are some best practices to be used, mainly in components and pages creation.
 
@@ -28,7 +29,7 @@ Besides of all the things talked in the [nave guide](https://nave.gitlab.io/guid
 4. If you need to create a new component with variants, take a look at the Text component and use the variant prop from the styled-system.
 5. Follow the code pattern and folder standard.
 
-#### :wrench: Running & Testing
+## :wrench: Running & Testing
 
 To run this template as a app in your environment follow these steps
 
