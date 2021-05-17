@@ -28,13 +28,21 @@ const Button: FC<ButtonComponent> = ({ text, variant, disabled, loading, ...prop
   const { colors } = useTheme();
 
   const textColor = useMemo(() => {
-    if (variant === SECONDARY) return colors.secondary;
+    if (disabled) return colors.gray.n400;
+
+    if (variant === PRIMARY) return colors.secondary;
 
     return colors.primary;
-  }, [variant, colors]);
+  }, [variant, disabled, colors]);
 
   return (
-    <StyledButton variant={disabled ? 'disabled' : variant} disabled={disabled} {...props}>
+    <StyledButton
+      variant={disabled ? 'disabled' : variant}
+      disabled={disabled}
+      my='5px'
+      width='100%'
+      {...props}
+    >
       {loading && <ActivityIndicator size='small' color={textColor} />}
 
       {!loading && (
@@ -52,15 +60,15 @@ const StyledButton: FC<StyledButton> = styled.TouchableOpacity(
   variant({
     variants: {
       [PRIMARY]: {
-        backgroundColor: 'secondary',
-        borderColor: 'secondary'
+        backgroundColor: 'primary',
+        borderColor: 'primary'
       },
       [SECONDARY]: {
         backgroundColor: 'transparent',
-        borderColor: 'secondary'
+        borderColor: 'primary'
       },
       [DISABLED]: {
-        backgroundColor: 'gray.n400',
+        backgroundColor: 'transparent',
         borderColor: 'gray.n400'
       }
     }
