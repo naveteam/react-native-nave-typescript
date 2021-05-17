@@ -21,7 +21,6 @@ interface StyledColumnProps extends ColumnProps {
 }
 
 interface StyledInputProps extends TextInputProps {
-  autoCapitalize: 'none';
   error?: string;
   type?: string;
 }
@@ -35,6 +34,7 @@ const InputComponent: FC<InputComponentProps> = ({
   placeholder,
   testID,
   value,
+  autoCapitalize = 'none',
   callToAction,
   onChangeText,
   ...rest
@@ -66,7 +66,7 @@ const InputComponent: FC<InputComponentProps> = ({
           multiline={multiline}
           placeholder={placeholder}
           secureTextEntry={type === 'password'}
-          autoCapitalize='none'
+          autoCapitalize={autoCapitalize}
           value={value}
           onFocus={(): void => {
             setIsFocused(true);
