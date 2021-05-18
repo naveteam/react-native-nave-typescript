@@ -37,6 +37,7 @@ const InputComponent: FC<InputComponentProps> = ({
   autoCapitalize = 'none',
   callToAction,
   onChangeText,
+  keyboardType,
   ...rest
 }) => {
   const { colors } = useTheme();
@@ -67,6 +68,7 @@ const InputComponent: FC<InputComponentProps> = ({
           placeholder={placeholder}
           secureTextEntry={type === 'password'}
           autoCapitalize={autoCapitalize}
+          keyboardType={keyboardType}
           value={value}
           onFocus={(): void => {
             setIsFocused(true);
