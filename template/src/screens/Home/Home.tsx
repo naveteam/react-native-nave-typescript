@@ -11,7 +11,7 @@ const Home: FC = () => {
   return (
     <Column alignItems='center' flex={1} justifyContent='center' p='16px'>
       <Row alignItems='center' mb='10px'>
-        <Text color={colors.primary} variant='regular' mr={2}>
+        <Text color={colors.primary} mr={2}>
           Built with react-native-nave-typescript
         </Text>
 

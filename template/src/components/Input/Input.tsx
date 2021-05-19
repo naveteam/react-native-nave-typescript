@@ -27,7 +27,7 @@ interface StyledInputProps extends TextInputProps {
 
 const InputComponent: FC<InputComponentProps> = ({
   multiline,
-  editable = true,
+  editable,
   label,
   error,
   type,
@@ -143,5 +143,9 @@ const StyledInput = styled.TextInput.attrs(({ theme: { colors }, multiline, ...r
   font-size: 16px;
   font-weight: 500;
 `;
+
+InputComponent.defaultProps = {
+  editable: true
+};
 
 export default InputComponent;
