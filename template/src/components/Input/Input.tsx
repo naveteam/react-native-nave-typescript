@@ -53,7 +53,7 @@ const InputComponent: FC<InputComponentProps> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <Column width='100%' my='5px' {...rest}>
+    <Column width='100%' my='5px'>
       {label && (
         <Text color={getColor} variant='small' mb='5px'>
           {label}
@@ -75,6 +75,7 @@ const InputComponent: FC<InputComponentProps> = ({
           }}
           onChangeText={onChangeText}
           onBlur={(): void => setIsFocused(false)}
+          {...rest}
         />
 
         {callToAction && (
