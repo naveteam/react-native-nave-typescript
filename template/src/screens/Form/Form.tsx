@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -31,18 +31,28 @@ const Form: FC = () => {
     console.log(data);
   };
 
+  // TO-DO focus on next input when submit
+  const handleFocus = (name: string) => {
+    // control.fieldsRef.current[name]?.ref?.focus();
+  };
+
   return (
     <Column alignItems='center' flex={1} justifyContent='center'>
       <Controller
         name='email'
         control={control}
-        render={({ field: { onChange, value } }): JSX.Element => (
+        render={({ field: { onChange, value, ref }, ...rest }): JSX.Element => (
           <Input
-            value={value}
-            onChangeText={value => onChange(value)}
-            error={errors.email?.message}
+            ref={ref}
             label='E-mail'
             placeholder='email@example.com'
+            keyboardType='email-address'
+            returnKeyType='next'
+            value={value}
+            error={errors.email?.message}
+            onSubmitEditing={() => handleFocus('password')}
+            onChangeText={onChange}
+            {...rest}
           />
         )}
       />
@@ -50,15 +60,19 @@ const Form: FC = () => {
       <Controller
         name='password'
         control={control}
-        render={({ field: { onChange, value } }): JSX.Element => (
+        render={({ field: { onChange, value, ref }, ...rest }): JSX.Element => (
           <Input
-            value={value}
-            onChangeText={value => onChange(value)}
-            error={errors.password?.message}
+            ref={ref}
             label='Password'
             placeholder='password'
             type={isPasswordInput ? 'password' : 'text'}
+            returnKeyType='done'
+            value={value}
+            error={errors.password?.message}
+            onChangeText={onChange}
+            onSubmitEditing={handleSubmit(onSubmit)}
             callToAction={() => setIsPasswordInput(!isPasswordInput)}
+            {...rest}
           />
         )}
       />

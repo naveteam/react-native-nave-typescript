@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { ForwardRefRenderFunction, useMemo, useState, forwardRef } from 'react';
 import { TextInputProps, Platform, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -25,21 +25,24 @@ interface StyledInputProps extends TextInputProps {
   type?: string;
 }
 
-const InputComponent: FC<InputComponentProps> = ({
-  multiline,
-  editable,
-  label,
-  error,
-  type,
-  placeholder,
-  testID,
-  value,
-  autoCapitalize = 'none',
-  callToAction,
-  onChangeText,
-  keyboardType,
-  ...rest
-}) => {
+const InputComponent: ForwardRefRenderFunction<unknown, InputComponentProps> = (
+  {
+    multiline,
+    editable = true,
+    label,
+    error,
+    type,
+    placeholder,
+    testID,
+    value,
+    autoCapitalize = 'none',
+    callToAction,
+    onChangeText,
+    keyboardType,
+    ...rest
+  },
+  ref
+) => {
   const { colors } = useTheme();
 
   const getColor = useMemo(() => {
@@ -62,14 +65,10 @@ const InputComponent: FC<InputComponentProps> = ({
 
       <InputContainer error={error} isFocused={isFocused} editable={editable} multiline={multiline}>
         <StyledInput
-          testID={testID}
-          editable={editable}
-          multiline={multiline}
-          placeholder={placeholder}
           secureTextEntry={type === 'password'}
-          autoCapitalize={autoCapitalize}
-          keyboardType={keyboardType}
+          placeholder={placeholder}
           value={value}
+          ref={ref}
           onFocus={(): void => {
             setIsFocused(true);
           }}
@@ -144,8 +143,4 @@ const StyledInput = styled.TextInput.attrs(({ theme: { colors }, multiline, ...r
   font-weight: 500;
 `;
 
-InputComponent.defaultProps = {
-  editable: true
-};
-
-export default InputComponent;
+export default forwardRef(InputComponent);

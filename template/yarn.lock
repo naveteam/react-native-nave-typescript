@@ -5879,10 +5879,10 @@ react-devtools-core@^4.6.0:
     shell-quote "^1.6.1"
     ws "^7"
 
-react-hook-form@^7.6.0:
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.6.0.tgz#ec8aa8376738356c5af09992404292ba04067ac4"
-  integrity sha512-Ai3lx5TZO/W274PVgIqOkjhCAxQJ7KRU9c6tTM1M0LDctCUZ0LavirUiy+42b0gxGLUswO0vPsxcpw1CkkebUA==
+react-hook-form@^7.6.4:
+  version "7.6.4"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.6.4.tgz#f450654af23fee65f8b948397805830099346c0d"
+  integrity sha512-eKLRWkZcUKGYKMnKvN/VwPVc8t3pjfs69UEp/DJNS2ccGk18UKFq/XE049W+ye144aUj+1++NgUjs2/yMNuBWw==
 
 "react-is@^16.12.0 || ^17.0.0", react-is@^17.0.1:
   version "17.0.2"
