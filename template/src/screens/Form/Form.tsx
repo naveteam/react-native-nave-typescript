@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useRef, MutableRefObject } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -9,6 +9,10 @@ import { FormExampleSchema } from 'src/utils';
 interface FormExampleData {
   email: string;
   password: string;
+}
+
+interface InputRef {
+  focus(): void;
 }
 
 const Form: FC = () => {
@@ -25,15 +29,16 @@ const Form: FC = () => {
       password: ''
     }
   });
+  const passwordInputRef = useRef() as MutableRefObject<InputRef>;
   const [isPasswordInput, setIsPasswordInput] = useState(true);
 
   const onSubmit = (data: FormExampleData) => {
     console.log(data);
   };
 
-  // TO-DO focus on next input when submit
-  const handleFocus = (name: string) => {
-    // control.fieldsRef.current[name]?.ref?.focus();
+  const handleFocus = (ref: MutableRefObject<InputRef>) => {
+    // Now on react-hook-form v7, to focus inputs we should use the ref prop
+    ref.current?.focus();
   };
 
   return (
@@ -41,16 +46,15 @@ const Form: FC = () => {
       <Controller
         name='email'
         control={control}
-        render={({ field: { onChange, value, ref }, ...rest }): JSX.Element => (
+        render={({ field: { onChange, value }, ...rest }): JSX.Element => (
           <Input
-            ref={ref}
             label='E-mail'
             placeholder='email@example.com'
             keyboardType='email-address'
             returnKeyType='next'
             value={value}
             error={errors.email?.message}
-            onSubmitEditing={() => handleFocus('password')}
+            onSubmitEditing={() => handleFocus(passwordInputRef)}
             onChangeText={onChange}
             {...rest}
           />
@@ -60,9 +64,9 @@ const Form: FC = () => {
       <Controller
         name='password'
         control={control}
-        render={({ field: { onChange, value, ref }, ...rest }): JSX.Element => (
+        render={({ field: { onChange, value }, ...rest }): JSX.Element => (
           <Input
-            ref={ref}
+            ref={passwordInputRef}
             label='Password'
             placeholder='password'
             type={isPasswordInput ? 'password' : 'text'}
