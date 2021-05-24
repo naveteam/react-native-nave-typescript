@@ -9,8 +9,7 @@ import { Column, ColumnProps, Text } from 'src/components';
 interface InputComponentProps extends Omit<TextInputProps, 'style'>, ColumnProps {
   label?: string;
   error?: string;
-  type?: string;
-  callToAction?: () => void;
+  callToAction?(): void;
 }
 
 interface StyledColumnProps extends ColumnProps {
@@ -25,13 +24,17 @@ interface StyledInputProps extends TextInputProps {
   type?: string;
 }
 
-const InputComponent: ForwardRefRenderFunction<unknown, InputComponentProps> = (
+export interface InputRef {
+  focus(): void;
+}
+
+const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = (
   {
     multiline,
     editable = true,
+    secureTextEntry = false,
     label,
     error,
-    type,
     placeholder,
     testID,
     value,
@@ -65,22 +68,24 @@ const InputComponent: ForwardRefRenderFunction<unknown, InputComponentProps> = (
 
       <InputContainer error={error} isFocused={isFocused} editable={editable} multiline={multiline}>
         <StyledInput
-          secureTextEntry={type === 'password'}
+          editable={editable}
+          multiline={multiline}
+          secureTextEntry={secureTextEntry}
           placeholder={placeholder}
+          autoCapitalize={autoCapitalize}
           value={value}
           ref={ref}
-          onFocus={(): void => {
-            setIsFocused(true);
-          }}
+          onFocus={() => setIsFocused(true)}
           onChangeText={onChangeText}
-          onBlur={(): void => setIsFocused(false)}
+          onBlur={() => setIsFocused(false)}
+          testID={testID}
           {...rest}
         />
 
         {callToAction && (
           <TouchableOpacity style={{ marginRight: 8 }} onPress={() => callToAction()}>
             <Icon
-              name={type === 'password' ? 'eye' : 'eye-slash'}
+              name={secureTextEntry ? 'eye' : 'eye-slash'}
               size={20}
               color={editable ? (isFocused ? colors.primary : colors.gray.n500) : colors.gray.n200}
             />

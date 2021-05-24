@@ -2,17 +2,13 @@ import React, { FC, useState, useRef, MutableRefObject } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Column, Input, Button } from 'src/components';
+import { Column, Input, InputRef, Button } from 'src/components';
 
 import { FormExampleSchema } from 'src/utils';
 
 interface FormExampleData {
   email: string;
   password: string;
-}
-
-interface InputRef {
-  focus(): void;
 }
 
 const Form: FC = () => {
@@ -30,6 +26,7 @@ const Form: FC = () => {
     }
   });
   const passwordInputRef = useRef() as MutableRefObject<InputRef>;
+
   const [isPasswordInput, setIsPasswordInput] = useState(true);
 
   const onSubmit = (data: FormExampleData) => {
@@ -69,13 +66,13 @@ const Form: FC = () => {
             ref={passwordInputRef}
             label='Password'
             placeholder='password'
-            type={isPasswordInput ? 'password' : 'text'}
             returnKeyType='done'
+            secureTextEntry={isPasswordInput}
             value={value}
             error={errors.password?.message}
             onChangeText={onChange}
-            onSubmitEditing={handleSubmit(onSubmit)}
             callToAction={() => setIsPasswordInput(!isPasswordInput)}
+            onSubmitEditing={handleSubmit(onSubmit)}
             {...rest}
           />
         )}
