@@ -82,7 +82,7 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
           {...rest}
         />
 
-        {callToAction && (
+        {/* {callToAction && (
           <TouchableOpacity style={{ marginRight: 8 }} onPress={() => callToAction()}>
             <Icon
               name={secureTextEntry ? 'eye' : 'eye-slash'}
@@ -90,7 +90,7 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
               color={editable ? (isFocused ? colors.primary : colors.gray.n500) : colors.gray.n200}
             />
           </TouchableOpacity>
-        )}
+        )} */}
       </InputContainer>
 
       {error && (
