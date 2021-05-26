@@ -1,6 +1,6 @@
 {
   "name": "react-native-template-nave-typescript",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Native Template for a quick start with typescript, styled-components, styled-system, axios and other features",
   "files": [
     "template",
