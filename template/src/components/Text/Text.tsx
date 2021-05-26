@@ -67,4 +67,8 @@ const TextComponent: FC<TextComponentProps> = styled.Text<TextComponentProps>(
   position
 );
 
+TextComponent.defaultProps = {
+  variant: 'regular'
+};
+
 export default TextComponent;

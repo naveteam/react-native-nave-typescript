@@ -44,6 +44,8 @@ declare module 'styled-components' {
       error: string;
       warning: string;
       success: string;
+      primary: string;
+      secondary: string;
       gray: {
         n50: string;
         n100: string;
