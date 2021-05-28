@@ -56,7 +56,9 @@
     "metro-react-native-babel-preset": "^0.64.0",
     "react-test-renderer": "17.0.1",
     "reactotron-react-native": "^5.0.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
   },
   "resolutions": {
     "@types/react": "^17"
@@ -78,6 +80,11 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   }
 }
