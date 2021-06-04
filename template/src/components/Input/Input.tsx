@@ -2,7 +2,7 @@ import React, { ForwardRefRenderFunction, useMemo, useState, forwardRef } from '
 import { TextInputProps, Platform, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useTheme } from '@react-navigation/native';
+import { useTheme } from 'styled-components/native';
 
 import { Column, ColumnProps, Text } from 'src/components';
 
