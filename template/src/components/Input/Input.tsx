@@ -59,7 +59,7 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
   const [isFocused, setIsFocused] = useState(false);
 
   return (
-    <Column width='100%' my='5px'>
+    <Column width='100%' my='5px' {...rest}>
       {label && (
         <Text color={getColor} variant='small' mb='5px'>
           {label}
@@ -79,7 +79,6 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
           onChangeText={onChangeText}
           onBlur={() => setIsFocused(false)}
           testID={testID}
-          {...rest}
         />
 
         {callToAction && (
@@ -105,33 +104,33 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
 const InputContainer = styled.View<StyledColumnProps>`
   ${({ theme: { colors }, error, editable, isFocused, multiline, ...rest }) => {
     const disabledStyle = `
-      background-color: ${colors.gray.n200}
-    `;
+       background-color: ${colors.gray.n200}
+     `;
     const focusedStyle = `
-      border-color: ${colors.primary};
-    `;
+       border-color: ${colors.primary};
+     `;
 
     const textAreaStyle = `
-      height: 90px;
-    `;
+       height: 90px;
+     `;
 
     const errorStyle = `
-      border-color: ${colors.error};
-    `;
+       border-color: ${colors.error};
+     `;
 
     return `
-      align-items: center;
-      background-color: transparent;
-      border: 1px solid ${colors.gray.n500};
-      border-radius: 4px;
-      flex-direction: row;
-      height: 40px;
+       align-items: center;
+       background-color: transparent;
+       border: 1px solid ${colors.gray.n500};
+       border-radius: 4px;
+       flex-direction: row;
+       height: 40px;
 
-      ${error ? errorStyle : ''}
-      ${isFocused ? focusedStyle : ''}
-      ${!editable ? disabledStyle : ''}
-      ${multiline ? textAreaStyle : ''}
-    `;
+       ${error ? errorStyle : ''}
+       ${isFocused ? focusedStyle : ''}
+       ${!editable ? disabledStyle : ''}
+       ${multiline ? textAreaStyle : ''}
+     `;
   }}
 `;
 

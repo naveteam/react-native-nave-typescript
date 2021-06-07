@@ -1,20 +1,16 @@
-// import { action } from '@storybook/addon-actions';
-// import { text } from '@storybook/addon-knobs';
-// import { storiesOf } from '@storybook/react-native';
-// import React from 'react';
-// import { Text } from 'react-native';
-// import { Button } from '../../../src/components';
-// import CenterView from '../CenterView';
+import { storiesOf } from '@storybook/react-native';
+import React from 'react';
 
-// storiesOf('Button', module)
-//   .addDecorator(getStory => <CenterView>{getStory()}</CenterView>)
-//   .add('with text', () => (
-//     <Button onPress={action('clicked-text')}>
-//       <Text>{text('Button text', 'Hello Button')}</Text>
-//     </Button>
-//   ))
-//   .add('with some emoji', () => (
-//     <Button onPress={action('clicked-emoji')}>
-//       <Text>😀 😎 👍 💯</Text>
-//     </Button>
-//   ));
+import { Column, Button } from 'src/components';
+
+import Decorator from '../../decorator';
+
+storiesOf('Button', module)
+  .addDecorator(Decorator)
+  .add('variants', () => (
+    <Column alignItems='center'>
+      <Button text='Primary' width='90%' />
+      <Button text='Secondary' variant='secondary' width='90%' mt={12} />
+      <Button text='Disabled' width='90%' disabled mt={12} />
+    </Column>
+  ));
