@@ -12,7 +12,9 @@
     "test": "jest",
     "prettier": "prettier --write '**/*.{js,ts,tsx}' --ignore-path .gitignore",
     "pod-install": "cd ios && pod install && cd ..",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "storybook": "start-storybook -p 7007",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.5.1",
@@ -39,6 +41,13 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@storybook/addon-actions": "^5.3",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^5.3",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.25",
+    "@storybook/react-native": "^5.3.25",
+    "@storybook/react-native-server": "^5.3.23",
     "@testing-library/react-native": "^7.2.0",
     "@types/jest": "^26.0.20",
     "@types/react-native": "^0.64.0",
@@ -53,13 +62,14 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-standard": "^5.0.0",
+    "husky": "^6.0.0",
     "jest": "^26.6.3",
+    "lint-staged": "^11.0.0",
     "metro-react-native-babel-preset": "^0.64.0",
+    "react-dom": "17.0.1",
     "react-test-renderer": "17.0.1",
     "reactotron-react-native": "^5.0.0",
-    "typescript": "^3.8.3",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0"
+    "typescript": "^3.8.3"
   },
   "resolutions": {
     "@types/react": "^17"

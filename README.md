@@ -76,4 +76,13 @@ iOS
 yarn ios
 ```
 
+Running the storybook
+
+In the app-module.tsx file, change the default export with 
+```sh
+export { default } from '../storybook';
+```
+Then, choose your platform and run yarn ios/android
+
+
 In [package.json](https://github.com/naveteam/react-native-nave-typescript/blob/main/template/package.json) on the `scripts` section there are more scripts to manage the application.
