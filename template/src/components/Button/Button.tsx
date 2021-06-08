@@ -1,7 +1,8 @@
 import React, { FC, useMemo } from 'react';
 import { TouchableOpacityProps, ActivityIndicator } from 'react-native';
 import { variant, space, layout } from 'styled-system';
-import styled, { useTheme } from 'styled-components/native';
+import styled from 'styled-components/native';
+import { useTheme } from '@react-navigation/native';
 
 import { ColumnProps, Text, Row } from 'src/components';
 
