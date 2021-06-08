@@ -32,14 +32,14 @@ const App: FC = () => {
   );
 };
 
-// export default (): JSX.Element => (
-//   <ThemeProvider theme={theme}>
-//     <AppProviders>
-//       <StatusBar backgroundColor={theme.colors.secondary} barStyle='dark-content' />
+export default (): JSX.Element => (
+  <ThemeProvider theme={theme}>
+    <AppProviders>
+      <StatusBar backgroundColor={theme.colors.secondary} barStyle='dark-content' />
 
-//       <App />
-//     </AppProviders>
-//   </ThemeProvider>
-// );
+      <App />
+    </AppProviders>
+  </ThemeProvider>
+);
 
-export { default } from '../storybook';
+//export { default } from '../storybook';
