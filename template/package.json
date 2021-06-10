@@ -65,6 +65,7 @@
     "eslint-plugin-standard": "^5.0.0",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
+    "jest-transform-stub": "^2.0.0",
     "lint-staged": "^11.0.0",
     "metro-react-native-babel-preset": "^0.64.0",
     "react-dom": "17.0.1",
@@ -91,7 +92,10 @@
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native(-.*)?|@react-native(-community)?)/)"
-    ]
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
+    }
   },
   "config": {
     "commitizen": {
