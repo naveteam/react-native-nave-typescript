@@ -1,8 +1,7 @@
 import React, { ForwardRefRenderFunction, useMemo, useState, forwardRef } from 'react';
 import { TextInputProps, Platform, TouchableOpacity } from 'react-native';
-import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useTheme } from '@react-navigation/native';
+import styled, { useTheme } from 'styled-components/native';
 
 import { Column, ColumnProps, Text } from 'src/components';
 
@@ -82,7 +81,11 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
         />
 
         {callToAction && (
-          <TouchableOpacity style={{ marginRight: 8 }} onPress={() => callToAction()}>
+          <TouchableOpacity
+            testID='touchable-call-to-action'
+            style={{ marginRight: 8 }}
+            onPress={() => callToAction()}
+          >
             <Icon
               name={secureTextEntry ? 'eye' : 'eye-slash'}
               size={20}
