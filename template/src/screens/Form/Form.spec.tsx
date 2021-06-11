@@ -32,8 +32,10 @@ describe('Form', () => {
     const emailInput = getByPlaceholderText(email.placeholder);
     const passwordInput = getByPlaceholderText(password.placeholder);
 
-    await fireEvent.changeText(emailInput, 'email@nave.rs');
-    await fireEvent.changeText(passwordInput, 'Senha123-');
+    await act(async () => {
+      await fireEvent.changeText(emailInput, 'email@nave.rs');
+      await fireEvent.changeText(passwordInput, 'Senha123-');
+    });
 
     expect(emailInput.props.value).toBe('email@nave.rs');
     expect(passwordInput.props.value).toBe('Senha123-');
@@ -45,10 +47,14 @@ describe('Form', () => {
     const passwordInput = getByPlaceholderText(password.placeholder);
     const resetButton = getByText(resetButtonText);
 
-    await fireEvent.changeText(emailInput, 'email@nave.rs');
-    await fireEvent.changeText(passwordInput, 'Senha123-');
+    await act(async () => {
+      await fireEvent.changeText(emailInput, 'email@nave.rs');
+      await fireEvent.changeText(passwordInput, 'Senha123-');
+    });
 
-    await fireEvent.press(resetButton);
+    await act(async () => {
+      await fireEvent.press(resetButton);
+    });
 
     expect(emailInput.props.value).not.toBe('email@nave.rs');
     expect(passwordInput.props.value).not.toBe('Senha123-');

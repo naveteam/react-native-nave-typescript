@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, fireEvent } from 'src/utils/tests';
+import { render, fireEvent, act } from 'src/utils/tests';
 
 import Button from './Button';
 
@@ -19,7 +19,9 @@ describe('Button', () => {
     const { toJSON, getByText } = render(<Button text={text} onPress={onPress} />);
     const button = getByText(text);
 
-    await fireEvent(button, 'onPress');
+    await act(async () => {
+      await fireEvent.press(button);
+    });
 
     expect(onPress).toHaveBeenCalled();
     expect(onPress).toHaveBeenCalledTimes(1);

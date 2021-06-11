@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { render, fireEvent } from 'src/utils/tests';
+import { render, fireEvent, act } from 'src/utils/tests';
 
 import Input from './Input';
 
@@ -44,7 +44,9 @@ describe('Input', () => {
     const { getByPlaceholderText, toJSON } = render(<TextCase />);
     const input = getByPlaceholderText(placeholder);
 
-    await fireEvent.changeText(input, email);
+    await act(async () => {
+      await fireEvent.changeText(input, email);
+    });
 
     expect(input.props.value).toBe(email);
     expect(toJSON()).toMatchSnapshot();
@@ -67,7 +69,9 @@ describe('Input', () => {
     );
     const button = getByTestId(callToActionTestId);
 
-    await fireEvent.press(button);
+    await act(async () => {
+      await fireEvent.press(button);
+    });
 
     expect(callToAction).toHaveBeenCalled();
     expect(callToAction).toHaveBeenCalledTimes(1);
