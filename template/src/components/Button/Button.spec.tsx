@@ -8,16 +8,15 @@ describe('Button', () => {
   const text = 'press-me';
 
   it('should be able to render a Text within', async () => {
-    const { toJSON, findByText } = render(<Button text={text} />);
+    const { toJSON, getByText } = render(<Button text={text} />);
 
-    expect(await findByText(text)).toBeTruthy();
+    expect(getByText(text)).toBeTruthy();
     expect(toJSON()).toMatchSnapshot();
   });
 
   it('should be able to call onPress function', async () => {
     const onPress = jest.fn();
     const { toJSON, getByText } = render(<Button text={text} onPress={onPress} />);
-
     const button = getByText(text);
 
     await fireEvent(button, 'onPress');

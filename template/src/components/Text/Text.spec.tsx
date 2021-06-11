@@ -6,9 +6,9 @@ import Text from './Text';
 
 describe('Text', () => {
   it('should be able to render a text within', async () => {
-    const { toJSON, findByText } = render(<Text>Hello World</Text>);
+    const { toJSON, getByText } = render(<Text>Hello World</Text>);
 
-    expect(await findByText('Hello World')).toBeTruthy();
+    expect(getByText('Hello World')).toBeTruthy();
     expect(toJSON()).toMatchSnapshot();
   });
 });

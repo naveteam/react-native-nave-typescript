@@ -7,13 +7,13 @@ import Column from './Column';
 
 describe('Column', () => {
   it('should be able to render a Text compontent within', async () => {
-    const { toJSON, findByText } = render(
+    const { toJSON, getByText } = render(
       <Column>
         <Text>Hello World</Text>
       </Column>
     );
 
-    expect(await findByText('Hello World')).toBeTruthy();
+    expect(getByText('Hello World')).toBeTruthy();
     expect(toJSON()).toMatchSnapshot();
   });
 });

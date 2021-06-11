@@ -7,13 +7,13 @@ import Row from './Row';
 
 describe('Row', () => {
   it('should be able to render a Text compontent within', async () => {
-    const { toJSON, findByText } = render(
+    const { toJSON, getByText } = render(
       <Row>
         <Text>Hello World</Text>
       </Row>
     );
 
-    expect(await findByText('Hello World')).toBeTruthy();
+    expect(getByText('Hello World')).toBeTruthy();
     expect(toJSON()).toMatchSnapshot();
   });
 });
