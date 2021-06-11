@@ -7,7 +7,7 @@ import Button from './Button';
 describe('Button', () => {
   const text = 'press-me';
 
-  it('should be able to render a Text within', async () => {
+  it('should be able to render a Text within', () => {
     const { toJSON, getByText } = render(<Button text={text} />);
 
     expect(getByText(text)).toBeTruthy();

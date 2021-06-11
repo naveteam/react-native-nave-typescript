@@ -6,7 +6,7 @@ import { Text } from 'src/components';
 import Column from './Column';
 
 describe('Column', () => {
-  it('should be able to render a Text compontent within', async () => {
+  it('should be able to render a Text compontent within', () => {
     const { toJSON, getByText } = render(
       <Column>
         <Text>Hello World</Text>
