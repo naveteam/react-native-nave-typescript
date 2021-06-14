@@ -5,32 +5,24 @@ import { render, fireEvent, act } from 'src/utils/tests';
 import Form from './Form';
 
 describe('Form', () => {
-  const email = {
-    label: 'E-mail',
-    placeholder: 'email@example.com'
-  };
-  const password = {
-    label: 'Password',
-    placeholder: 'password'
-  };
-  const submitButtonText = 'Submit form';
-  const resetButtonText = 'Reset form';
+  const emailInputTestId = 'email-input';
+  const passwordInputTestId = 'password-input';
+  const submitButtonTestId = 'submit-form-button';
+  const resetButtonTestId = 'reset-form-button';
 
   it('should be able to render', () => {
-    const { getByText, getByPlaceholderText } = render(<Form />);
+    const { getByTestId } = render(<Form />);
 
-    expect(getByText(email.label)).toBeTruthy();
-    expect(getByText(password.label)).toBeTruthy();
-    expect(getByText(submitButtonText)).toBeTruthy();
-    expect(getByText(resetButtonText)).toBeTruthy();
-    expect(getByPlaceholderText(email.placeholder)).toBeTruthy();
-    expect(getByPlaceholderText(password.placeholder)).toBeTruthy();
+    expect(getByTestId(emailInputTestId)).toBeTruthy();
+    expect(getByTestId(passwordInputTestId)).toBeTruthy();
+    expect(getByTestId(submitButtonTestId)).toBeTruthy();
+    expect(getByTestId(resetButtonTestId)).toBeTruthy();
   });
 
   it('should be able to fill all fields', async () => {
-    const { getByPlaceholderText } = render(<Form />);
-    const emailInput = getByPlaceholderText(email.placeholder);
-    const passwordInput = getByPlaceholderText(password.placeholder);
+    const { getByTestId } = render(<Form />);
+    const emailInput = getByTestId(emailInputTestId);
+    const passwordInput = getByTestId(passwordInputTestId);
 
     await act(async () => {
       await fireEvent.changeText(emailInput, 'email@nave.rs');
@@ -42,10 +34,10 @@ describe('Form', () => {
   });
 
   it('should be able to reset all fields', async () => {
-    const { getByPlaceholderText, getByText } = render(<Form />);
-    const emailInput = getByPlaceholderText(email.placeholder);
-    const passwordInput = getByPlaceholderText(password.placeholder);
-    const resetButton = getByText(resetButtonText);
+    const { getByTestId } = render(<Form />);
+    const emailInput = getByTestId(emailInputTestId);
+    const passwordInput = getByTestId(passwordInputTestId);
+    const resetButton = getByTestId(resetButtonTestId);
 
     await act(async () => {
       await fireEvent.changeText(emailInput, 'email@nave.rs');
@@ -61,8 +53,8 @@ describe('Form', () => {
   });
 
   it('should be able to render errors at fields', async () => {
-    const { getByText, getAllByText } = render(<Form />);
-    const submitButton = getByText(submitButtonText);
+    const { getByTestId, getAllByText } = render(<Form />);
+    const submitButton = getByTestId(submitButtonTestId);
 
     await act(async () => {
       await fireEvent.press(submitButton);
