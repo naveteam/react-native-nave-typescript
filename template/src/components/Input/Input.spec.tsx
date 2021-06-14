@@ -12,24 +12,22 @@ describe('Input', () => {
   const callToActionTestId = 'touchable-call-to-action';
 
   it('should be able to render with label and placeholder', () => {
-    const { getByPlaceholderText, getByText, toJSON } = render(
+    const { getByPlaceholderText, getByText } = render(
       <Input placeholder={placeholder} label={label} />
     );
 
     expect(getByText(label)).toBeTruthy();
     expect(getByPlaceholderText(placeholder)).toBeTruthy();
-    expect(toJSON()).toMatchSnapshot();
   });
 
   it('should be able to render with label, placeholder and error', () => {
-    const { getByPlaceholderText, getByText, toJSON } = render(
+    const { getByPlaceholderText, getByText } = render(
       <Input placeholder={placeholder} label={label} error={error} />
     );
 
     expect(getByText(label)).toBeTruthy();
     expect(getByText(error)).toBeTruthy();
     expect(getByPlaceholderText(placeholder)).toBeTruthy();
-    expect(toJSON()).toMatchSnapshot();
   });
 
   it('should be able to fill with text', async () => {
@@ -41,7 +39,7 @@ describe('Input', () => {
       );
     };
 
-    const { getByPlaceholderText, toJSON } = render(<TextCase />);
+    const { getByPlaceholderText } = render(<TextCase />);
     const input = getByPlaceholderText(placeholder);
 
     await act(async () => {
@@ -49,12 +47,11 @@ describe('Input', () => {
     });
 
     expect(input.props.value).toBe(email);
-    expect(toJSON()).toMatchSnapshot();
   });
 
   it('should be able to render with call to action', () => {
     const callToAction = jest.fn();
-    const { getByTestId, toJSON } = render(
+    const { getByTestId } = render(
       <Input
         placeholder={placeholder}
         label={label}
@@ -64,12 +61,11 @@ describe('Input', () => {
     );
 
     expect(getByTestId(callToActionTestId)).toBeTruthy();
-    expect(toJSON()).toMatchSnapshot();
   });
 
   it('should be able to press call to action button', async () => {
     const callToAction = jest.fn();
-    const { getByTestId, toJSON } = render(
+    const { getByTestId } = render(
       <Input
         placeholder={placeholder}
         label={label}
@@ -85,6 +81,5 @@ describe('Input', () => {
 
     expect(callToAction).toHaveBeenCalled();
     expect(callToAction).toHaveBeenCalledTimes(1);
-    expect(toJSON()).toMatchSnapshot();
   });
 });
