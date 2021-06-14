@@ -38,7 +38,7 @@ const Button: FC<ButtonComponent> = ({ text, variant, disabled, loading, ...prop
   return (
     <StyledButton
       variant={disabled ? 'disabled' : variant}
-      disabled={disabled}
+      disabled={disabled || loading}
       my='5px'
       width='100%'
       {...props}
