@@ -65,3 +65,5 @@ buck-out/
 .prettierrc.js
 .watchmanconfig
 .buckconfig
+
+__snapshots__/

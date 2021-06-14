@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { TouchableOpacityProps, ActivityIndicator } from 'react-native';
 import { variant, space, layout } from 'styled-system';
 import styled from 'styled-components/native';
-import { useTheme } from '@react-navigation/native';
+import { useTheme } from 'styled-components/native';
 
 import { ColumnProps, Text, Row } from 'src/components';
 
@@ -38,7 +38,7 @@ const Button: FC<ButtonComponent> = ({ text, variant, disabled, loading, ...prop
   return (
     <StyledButton
       variant={disabled ? 'disabled' : variant}
-      disabled={disabled}
+      disabled={disabled || loading}
       my='5px'
       width='100%'
       {...props}

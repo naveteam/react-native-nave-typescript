@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import { useTheme, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useTheme } from 'styled-components/native';
 
 import { Column, Row, Text, Button } from 'src/components';
 

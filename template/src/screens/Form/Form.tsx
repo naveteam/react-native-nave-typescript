@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Column, Input, InputRef, Button, KeyboardAwareScrollView } from 'src/components';
 
 import { FormExampleSchema } from 'src/utils';
-import { padding } from 'styled-system';
 
 interface FormExampleData {
   email: string;
@@ -53,6 +52,7 @@ const Form: FC = () => {
           control={control}
           render={({ field: { onChange, value } }): JSX.Element => (
             <Input
+              testID='email-input'
               label='E-mail'
               placeholder='email@example.com'
               keyboardType='email-address'
@@ -70,6 +70,8 @@ const Form: FC = () => {
           control={control}
           render={({ field: { onChange, value } }): JSX.Element => (
             <Input
+              testID='password-input'
+              callToActionTestId='password-input-call-to-action'
               ref={passwordInputRef}
               secureTextEntry={isPasswordInput}
               label='Password'
@@ -84,9 +86,19 @@ const Form: FC = () => {
           )}
         />
 
-        <Button text='Submit form' onPress={handleSubmit(onSubmit)} mt={20} />
+        <Button
+          testID='submit-form-button'
+          text='Submit form'
+          onPress={handleSubmit(onSubmit)}
+          mt={20}
+        />
 
-        <Button variant='secondary' text='Reset form' onPress={() => reset()} />
+        <Button
+          testID='reset-form-button'
+          variant='secondary'
+          text='Reset form'
+          onPress={() => reset()}
+        />
       </KeyboardAwareScrollView>
     </Column>
   );

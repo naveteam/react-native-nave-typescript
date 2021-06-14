@@ -7,20 +7,20 @@ export default class Welcome extends React.Component {
     wrapper: {
       flex: 1,
       padding: 24,
-      justifyContent: 'center',
+      justifyContent: 'center'
     },
     header: {
       fontSize: 18,
-      marginBottom: 18,
+      marginBottom: 18
     },
     content: {
       fontSize: 12,
       marginBottom: 10,
-      lineHeight: 18,
-    },
+      lineHeight: 18
+    }
   };
 
-  showApp = (event) => {
+  showApp = event => {
     const { showApp } = this.props;
     event.preventDefault();
 
@@ -49,9 +49,9 @@ export default class Welcome extends React.Component {
 }
 
 Welcome.defaultProps = {
-  showApp: null,
+  showApp: null
 };
 
 Welcome.propTypes = {
-  showApp: PropTypes.func,
+  showApp: PropTypes.func
 };
