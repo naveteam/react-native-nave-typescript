@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Column, Input, InputRef, Button, KeyboardAwareScrollView } from 'src/components';
 
 import { FormExampleSchema } from 'src/utils';
-import { padding } from 'styled-system';
 
 interface FormExampleData {
   email: string;
@@ -72,6 +71,7 @@ const Form: FC = () => {
           render={({ field: { onChange, value } }): JSX.Element => (
             <Input
               testID='password-input'
+              callToActionTestId='password-input-call-to-action'
               ref={passwordInputRef}
               secureTextEntry={isPasswordInput}
               label='Password'

@@ -7,6 +7,7 @@ import Form from './Form';
 describe('Form', () => {
   const emailInputTestId = 'email-input';
   const passwordInputTestId = 'password-input';
+  const passwordInputCallToActionTestId = 'password-input-call-to-action';
   const submitButtonTestId = 'submit-form-button';
   const resetButtonTestId = 'reset-form-button';
 
@@ -50,6 +51,20 @@ describe('Form', () => {
 
     expect(emailInput.props.value).not.toBe('email@nave.rs');
     expect(passwordInput.props.value).not.toBe('Senha123-');
+  });
+
+  it('should be able to press password text input callToAction to hidden password', async () => {
+    const { getByTestId } = render(<Form />);
+    const passwordInput = getByTestId(passwordInputTestId);
+    const passwordInputCallToActionButton = getByTestId(passwordInputCallToActionTestId);
+
+    expect(passwordInput.props.secureTextEntry).toBeTruthy();
+
+    await act(async () => {
+      await fireEvent.press(passwordInputCallToActionButton);
+    });
+
+    expect(passwordInput.props.secureTextEntry).toBeFalsy();
   });
 
   it('should be able to render errors at fields', async () => {
