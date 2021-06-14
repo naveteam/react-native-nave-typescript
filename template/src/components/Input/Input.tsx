@@ -8,6 +8,7 @@ import { Column, ColumnProps, Text } from 'src/components';
 interface InputComponentProps extends Omit<TextInputProps, 'style'>, ColumnProps {
   label?: string;
   error?: string;
+  callToActionTestId?: string;
   callToAction?(): void;
 }
 
@@ -41,6 +42,7 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
     callToAction,
     onChangeText,
     keyboardType,
+    callToActionTestId,
     ...rest
   },
   ref
@@ -82,7 +84,7 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
 
         {callToAction && (
           <TouchableOpacity
-            testID='touchable-call-to-action'
+            testID={callToActionTestId}
             style={{ marginRight: 8 }}
             onPress={() => callToAction()}
           >

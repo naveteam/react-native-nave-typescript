@@ -55,7 +55,12 @@ describe('Input', () => {
   it('should be able to render with call to action', () => {
     const callToAction = jest.fn();
     const { getByTestId, toJSON } = render(
-      <Input placeholder={placeholder} label={label} callToAction={callToAction} />
+      <Input
+        placeholder={placeholder}
+        label={label}
+        callToAction={callToAction}
+        callToActionTestId={callToActionTestId}
+      />
     );
 
     expect(getByTestId(callToActionTestId)).toBeTruthy();
@@ -65,7 +70,12 @@ describe('Input', () => {
   it('should be able to press call to action button', async () => {
     const callToAction = jest.fn();
     const { getByTestId, toJSON } = render(
-      <Input placeholder={placeholder} label={label} callToAction={callToAction} />
+      <Input
+        placeholder={placeholder}
+        label={label}
+        callToAction={callToAction}
+        callToActionTestId={callToActionTestId}
+      />
     );
     const button = getByTestId(callToActionTestId);
 
