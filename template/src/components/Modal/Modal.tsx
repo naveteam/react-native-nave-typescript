@@ -6,7 +6,7 @@ import { ColumnProps, Column } from '../Column';
 
 interface ModalComponentProps extends ColumnProps {
   open: boolean;
-  handleClose: Function;
+  handleClose?(): void;
   animationType?: ModalBaseProps['animationType'];
 }
 
@@ -18,7 +18,7 @@ const ModalComponent: FC<ModalComponentProps> = ({
   ...props
 }) => (
   <Modal animationType={animationType} transparent visible={open}>
-    <TouchableWithoutFeedback style={{ flex: 1 }} onPress={() => handleClose()}>
+    <TouchableWithoutFeedback style={{ flex: 1 }} onPress={handleClose}>
       <Container>
         <TouchableWithoutFeedback>
           <Column
