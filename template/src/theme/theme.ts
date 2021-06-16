@@ -4,7 +4,7 @@ export default {
     white: '#ffffff',
     error: '#D50000',
     warning: '#F49F14',
-    success: '#43A047',
+    success: '#4AB969',
     primary: '#6600CA',
     secondary: '#ffffff',
     gray: {
