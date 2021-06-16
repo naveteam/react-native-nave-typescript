@@ -92,7 +92,7 @@ const Snackbar: ForwardRefRenderFunction<SnackbarRef, SnackbarProps> = (
           hitSlop={{ bottom: 20, left: 20, top: 20, right: 20 }}
           onPress={() => toggle()}
         >
-          <Icon name='close' size={16} color='white' />
+          <Icon name='close' size={16} color={textColor} />
         </TouchableOpacity>
       </Row>
     </Animated.View>
