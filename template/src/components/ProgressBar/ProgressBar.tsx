@@ -1,7 +1,6 @@
-import React, { FC, useState, useMemo } from 'react';
-import { useWindowDimensions } from 'react-native';
+import React, { FC, useState, useMemo, useRef, useEffect } from 'react';
+import { useWindowDimensions, Animated } from 'react-native';
 import { useTheme } from '@react-navigation/native';
-import { Bar as RNProgressBar } from 'react-native-progress';
 
 import { Row, Text, ColumnProps } from 'src/components';
 
@@ -18,7 +17,6 @@ interface ProgressBarProps extends ColumnProps {
   isLabelVisible?: boolean;
   progressColor?: string;
   unfilledColor?: string;
-  borderWidth?: number;
 }
 
 const ProgressBar: FC<ProgressBarProps> = ({
@@ -27,7 +25,6 @@ const ProgressBar: FC<ProgressBarProps> = ({
   isLabelVisible = true,
   progressColor,
   unfilledColor,
-  borderWidth = 0,
   ...props
 }) => {
   const { colors } = useTheme();
@@ -41,12 +38,19 @@ const ProgressBar: FC<ProgressBarProps> = ({
   }, [rowWidth, width, isLabelVisible]);
 
   const progress = useMemo(() => (completed * TOTAL_PERCENTAGE) / total, [total, completed]);
-
-  const progressBetweenZeroAndOne = useMemo(() => progress / TOTAL_PERCENTAGE, [progress]);
+  const progressValue = useRef(new Animated.Value(progress)).current;
 
   const formatedLabel = useMemo(() => {
     const floor = Math.floor(progress);
     return `${floor > 100 ? '100' : floor}%`;
+  }, [progress]);
+
+  useEffect(() => {
+    Animated.timing(progressValue, {
+      duration: 1000,
+      toValue: progress,
+      useNativeDriver: false
+    }).start();
   }, [progress]);
 
   return (
@@ -61,19 +65,30 @@ const ProgressBar: FC<ProgressBarProps> = ({
       }): void => setRowWidth(width)}
       {...props}
     >
-      <RNProgressBar
+      <Row
+        backgroundColor={unfilledColor ?? colors.gray.n300}
+        height={5}
         width={progressBarWidth}
-        progress={progressBetweenZeroAndOne}
-        height={6}
-        color={progressColor ?? colors.success}
-        borderRadius={3}
-        borderColor={unfilledColor ?? colors.gray.n300}
-        unfilledColor={unfilledColor ?? colors.gray.n300}
-        borderWidth={borderWidth}
-      />
+        borderRadius={2.5}
+        position='relative'
+      >
+        <Animated.View
+          style={{
+            backgroundColor: progressColor ?? colors.success,
+            width: progressValue.interpolate({
+              inputRange: [0, 100],
+              outputRange: ['0%', '100%'],
+              extrapolate: 'clamp'
+            }),
+            position: 'absolute',
+            height: 5,
+            borderRadius: 2.5
+          }}
+        />
+      </Row>
 
       {isLabelVisible && (
-        <Text marginLeft={16} variant='smaller' color='gray'>
+        <Text marginLeft={16} variant='smaller' color='gray.n800'>
           {formatedLabel}
         </Text>
       )}
