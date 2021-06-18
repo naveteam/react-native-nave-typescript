@@ -5,3 +5,4 @@ export * from './Text';
 export * from './Input';
 export * from './KeyboardAwareScrollView';
 export * from './Modal';
+export * from './Accordion';
