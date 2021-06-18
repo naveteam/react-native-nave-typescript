@@ -5,16 +5,17 @@ import React, {
   forwardRef,
   useState,
   useRef,
-  useEffect
+  useEffect,
+  MutableRefObject
 } from 'react';
 import { useWindowDimensions, TouchableOpacity, Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { Row, Text } from 'src/components';
+import { Row, Text, ColumnProps } from 'src/components';
 
 const VISIBLE_OFFSET = -20;
 
-interface SnackbarProps {
+interface SnackbarProps extends ColumnProps {
   message: string;
   duration?: number;
   backgroundColor?: string;
@@ -25,13 +26,17 @@ interface SnackbarProps {
 export interface SnackbarRef {
   toggle(): void;
 }
-const Snackbar: ForwardRefRenderFunction<SnackbarRef, SnackbarProps> = (
+const Snackbar: ForwardRefRenderFunction<
+  SnackbarRef extends MutableRefObject<SnackbarRef> ? SnackbarRef : unknown,
+  SnackbarProps
+> = (
   {
     message,
     duration = 2000,
     backgroundColor = 'success',
     textColor = 'white',
-    autoDismiss = true
+    autoDismiss = true,
+    ...props
   },
   ref
 ) => {
@@ -48,7 +53,7 @@ const Snackbar: ForwardRefRenderFunction<SnackbarRef, SnackbarProps> = (
       useNativeDriver: true
     }).start();
     setIsVisible(!isVisible);
-  }, [isVisible, height]);
+  }, [isVisible, height, animatedTranslation]);
 
   useImperativeHandle(ref, () => ({
     toggle
@@ -84,6 +89,7 @@ const Snackbar: ForwardRefRenderFunction<SnackbarRef, SnackbarProps> = (
         p='10px'
         borderRadius={4}
         backgroundColor={backgroundColor}
+        {...props}
       >
         <Text fontSize='16px' maxWidth='80%' lineHeight='24px' color={textColor}>
           {message}
