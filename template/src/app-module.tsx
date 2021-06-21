@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
 import { StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer, DefaultTheme, ExtendedTheme } from '@react-navigation/native';
-import { ThemeProvider } from 'styled-components/native';
+import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 
-import { AppProviders } from 'src/context';
+import { AppProviders, ThemeProvider, ThemeConsumer, useTheme } from 'src/context';
 
-import { theme } from 'src/theme';
+import { light, dark } from 'src/theme';
 
 import Routes from '../Routes';
 
@@ -15,17 +14,18 @@ if (__DEV__) {
 }
 
 const App: FC = () => {
-  const MyTheme: ExtendedTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      ...theme.colors
+  const {
+    theme: {
+      dark,
+      colors: { background }
     }
-  };
+  } = useTheme();
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={MyTheme}>
+      <NavigationContainer
+        theme={{ dark, colors: { ...(dark ? DarkTheme.colors : DefaultTheme.colors), background } }}
+      >
         <Routes />
       </NavigationContainer>
     </SafeAreaProvider>
@@ -33,13 +33,25 @@ const App: FC = () => {
 };
 
 export default (): JSX.Element => (
-  <ThemeProvider theme={theme}>
-    <AppProviders>
-      <StatusBar backgroundColor={theme.colors.secondary} barStyle='dark-content' />
+  <ThemeProvider watchSystemAppearence light={light} dark={dark}>
+    <ThemeConsumer>
+      {({
+        theme: {
+          dark,
+          colors: { background }
+        }
+      }) => (
+        <StatusBar
+          backgroundColor={background}
+          barStyle={dark ? 'light-content' : 'dark-content'}
+        />
+      )}
+    </ThemeConsumer>
 
+    <AppProviders>
       <App />
     </AppProviders>
   </ThemeProvider>
 );
 
-//export { default } from '../storybook';
+// export { default } from '../storybook';
