@@ -12,7 +12,7 @@ import { Appearance, ColorSchemeName } from 'react-native';
 import { ThemeProvider as StyledThemeProvider, DefaultTheme } from 'styled-components/native';
 import NavigationBar from 'react-native-android-navigation-bar';
 
-import { isSystemDarkModeSupported, unsupportedObservationWarning } from 'src/utils';
+import { isSystemDarkModeSupported, unsupportedWatchSystemAppearanceWarning } from 'src/utils';
 
 type ThemeConsumable = (context: ThemeContextProps) => ReactNode;
 
@@ -63,7 +63,7 @@ export const ThemeProvider: FunctionComponent<WithSingleSchemeSupport | WithMult
 }) => {
   watchSystemAppearence &&
     !isSystemDarkModeSupported &&
-    console.warn(unsupportedObservationWarning);
+    console.warn(unsupportedWatchSystemAppearanceWarning);
 
   const [deviceColorScheme, setDeviceColorScheme] = useState(
     () => initialScheme ?? Appearance.getColorScheme()
