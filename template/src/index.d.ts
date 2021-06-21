@@ -5,15 +5,13 @@ interface AppTheme {
   colors: {
     primary: string;
     secondary: string;
-    white: string;
-    black: string;
+    background: string;
+    onPrimary: string;
+    onSecondary: string;
+    onBackground: string;
     error: string;
     warning: string;
     success: string;
-    background: string;
-    card: string;
-    text: string;
-    border: string;
     notification: string;
     gray: {
       n50: string;

@@ -28,9 +28,7 @@ const Button: FC<ButtonComponent> = ({ text, variant, disabled, loading, ...prop
 
   const textColor = useMemo(() => {
     if (disabled) return colors.gray.n400;
-
-    if (variant === PRIMARY) return colors.secondary;
-
+    if (variant === PRIMARY) return colors.onPrimary;
     return colors.primary;
   }, [variant, disabled, colors]);
 

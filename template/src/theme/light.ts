@@ -3,14 +3,15 @@ import { DefaultTheme } from 'styled-components/native';
 export default {
   dark: false,
   colors: {
-    black: '#000000',
-    white: '#ffffff',
+    primary: 'rgb(175, 82, 222)',
+    secondary: 'rgb(94, 92, 230)',
+    background: 'rgb(242, 242, 242)',
+    onPrimary: 'rgb(242, 242, 242)',
+    onSecondary: 'rgb(242, 242, 242)',
+    onBackground: 'rgb(28, 28, 30)',
     error: '#D50000',
     warning: '#F49F14',
     success: '#43A047',
-    primary: '#6600CA',
-    secondary: '#ffffff',
-    background: '#ffffff',
     gray: {
       n50: '#FAFAFA',
       n100: '#F5F5F5',

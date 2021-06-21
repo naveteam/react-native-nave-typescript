@@ -144,6 +144,7 @@ const StyledInput = styled.TextInput.attrs(({ theme: { colors }, multiline, ...r
   padding: 8px 10px;
   font-size: 16px;
   font-weight: 500;
+  color: ${({ theme }) => theme.colors.onBackground};
 `;
 
 export default forwardRef(InputComponent);
