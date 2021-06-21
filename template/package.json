@@ -26,6 +26,7 @@
     "react": "17.0.1",
     "react-hook-form": "^7.6.4",
     "react-native": "0.64.0",
+    "react-native-android-navigation-bar": "^1.0.2",
     "react-native-config": "^1.4.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.4",

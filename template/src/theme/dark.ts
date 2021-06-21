@@ -1,4 +1,7 @@
+import { DefaultTheme } from 'styled-components/native';
+
 export default {
+  dark: true,
   colors: {
     black: '#000000',
     white: '#ffffff',
@@ -7,6 +10,7 @@ export default {
     success: '#43A047',
     primary: '#6600CA',
     secondary: '#ffffff',
+    background: '#161616',
     gray: {
       n50: '#FAFAFA',
       n100: '#F5F5F5',
@@ -20,4 +24,4 @@ export default {
       n900: '#212121'
     }
   }
-};
+} as DefaultTheme;
