@@ -1,13 +1,15 @@
 package com.naverntstemplate;
 
-import com.facebook.react.ReactActivity;
-import android.content.Intent;
 import android.content.res.Configuration;
+
+import androidx.annotation.NonNull;
+
+import com.facebook.react.ReactActivity;
 
 public class MainActivity extends ReactActivity {
 
   @Override
-  public void onConfigurationChanged(Configuration configuration) {
+  public void onConfigurationChanged(@NonNull Configuration configuration) {
     super.onConfigurationChanged(configuration);
     getReactInstanceManager()
       .onConfigurationChanged(this, configuration);
