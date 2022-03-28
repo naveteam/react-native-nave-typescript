@@ -1,7 +1,5 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
-import { ASYNC_STORAGE_TOKEN } from "src/constants";
-import { storeData, retrieveData, removeData } from "src/helpers";
+import { ASYNC_STORAGE_TOKEN } from 'src/constants';
+import { storeData, retrieveData, removeData } from 'src/helpers';
 
 export const getToken = <T>(): Promise<T | undefined> =>
   retrieveData(ASYNC_STORAGE_TOKEN);
