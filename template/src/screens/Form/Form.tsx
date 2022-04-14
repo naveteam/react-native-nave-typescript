@@ -1,11 +1,11 @@
 import React, { FC, useRef, MutableRefObject, useState } from 'react';
+import { ScrollView } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Column, Input, InputRef, Button, KeyboardAwareScrollView } from 'src/components';
+import { Column, Input, InputRef, Button } from 'src/components';
 
 import { FormExampleSchema } from 'src/utils';
-import { padding } from 'styled-system';
 
 interface FormExampleData {
   email: string;
@@ -41,7 +41,7 @@ const Form: FC = () => {
 
   return (
     <Column flex={1}>
-      <KeyboardAwareScrollView
+      <ScrollView
         contentContainerStyle={{
           flex: 1,
           justifyContent: 'center',
@@ -87,7 +87,7 @@ const Form: FC = () => {
         <Button text='Submit form' onPress={handleSubmit(onSubmit)} mt={20} />
 
         <Button variant='secondary' text='Reset form' onPress={() => reset()} />
-      </KeyboardAwareScrollView>
+      </ScrollView>
     </Column>
   );
 };

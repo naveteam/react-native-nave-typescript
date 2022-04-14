@@ -8,6 +8,10 @@ interface KeyboardAwareScrollViewComponentProps extends KeyboardAwareScrollViewP
   children: ReactNode;
 }
 
+/**
+ * @deprecated Since React Native 65+ has pushed [changes](https://github.com/react-native-community/releases/blob/master/CHANGELOG.md)
+ * to the `NativeEventEmmiter` API, this package is currenctly causing crashes as mentioned [here](https://github.com/react-native-community/releases/issues/242#issuecomment-900132372).
+ */
 const KeyboardAwareScrollViewComponent: FC<KeyboardAwareScrollViewComponentProps> = ({
   children,
   ...rest
