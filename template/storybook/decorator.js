@@ -1,22 +1,14 @@
 import React from 'react';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { ThemeProvider } from 'styled-components/native';
 
-import { theme } from 'src/theme';
+import { ThemeProvider } from 'src/context';
 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    ...theme.colors
-  }
-};
+import { light, dark } from 'src/theme';
 
 const withThemeProvider = storyFn => {
   return (
-    <NavigationContainer theme={MyTheme}>
-      <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
-    </NavigationContainer>
+    <ThemeProvider watchSystemAppearence light={light} dark={dark}>
+      {storyFn()}
+    </ThemeProvider>
   );
 };
 

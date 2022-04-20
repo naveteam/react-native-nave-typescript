@@ -1,8 +1,7 @@
 import React, { FC, useMemo } from 'react';
 import { TouchableOpacityProps, ActivityIndicator } from 'react-native';
 import { variant, space, layout } from 'styled-system';
-import styled from 'styled-components/native';
-import { useTheme } from '@react-navigation/native';
+import styled, { useTheme } from 'styled-components/native';
 
 import { ColumnProps, Text, Row } from 'src/components';
 
@@ -29,9 +28,7 @@ const Button: FC<ButtonComponent> = ({ text, variant, disabled, loading, ...prop
 
   const textColor = useMemo(() => {
     if (disabled) return colors.gray.n400;
-
-    if (variant === PRIMARY) return colors.secondary;
-
+    if (variant === PRIMARY) return colors.onPrimary;
     return colors.primary;
   }, [variant, disabled, colors]);
 

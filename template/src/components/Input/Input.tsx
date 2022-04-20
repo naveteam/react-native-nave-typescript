@@ -1,8 +1,7 @@
 import React, { ForwardRefRenderFunction, useMemo, useState, forwardRef } from 'react';
 import { TextInputProps, Platform, TouchableOpacity } from 'react-native';
-import styled from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { useTheme } from '@react-navigation/native';
 
 import { Column, ColumnProps, Text } from 'src/components';
 
@@ -145,6 +144,7 @@ const StyledInput = styled.TextInput.attrs(({ theme: { colors }, multiline, ...r
   padding: 8px 10px;
   font-size: 16px;
   font-weight: 500;
+  color: ${({ theme }) => theme.colors.onBackground};
 `;
 
 export default forwardRef(InputComponent);

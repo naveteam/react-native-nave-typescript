@@ -1,11 +1,11 @@
 import React, { FC, useRef, MutableRefObject, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTheme } from 'styled-components/native';
 
 import { Column, Input, InputRef, Button, KeyboardAwareScrollView } from 'src/components';
 
 import { FormExampleSchema } from 'src/utils';
-import { padding } from 'styled-system';
 
 interface FormExampleData {
   email: string;
@@ -13,6 +13,9 @@ interface FormExampleData {
 }
 
 const Form: FC = () => {
+  const passwordInputRef = useRef() as MutableRefObject<InputRef>;
+  const { colors } = useTheme();
+
   const {
     control,
     handleSubmit,
@@ -26,7 +29,6 @@ const Form: FC = () => {
       password: ''
     }
   });
-  const passwordInputRef = useRef() as MutableRefObject<InputRef>;
 
   const [isPasswordInput, setIsPasswordInput] = useState(true);
 
@@ -40,7 +42,7 @@ const Form: FC = () => {
   };
 
   return (
-    <Column flex={1}>
+    <Column flex={1} bg={colors.background}>
       <KeyboardAwareScrollView
         contentContainerStyle={{
           flex: 1,

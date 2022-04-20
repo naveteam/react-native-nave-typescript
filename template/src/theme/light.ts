@@ -1,12 +1,17 @@
+import { DefaultTheme } from 'styled-components/native';
+
 export default {
+  dark: false,
   colors: {
-    black: '#000000',
-    white: '#ffffff',
+    primary: '#af52de',
+    secondary: '#5e5ce6',
+    background: '#f2f2f2',
+    onPrimary: '#f2f2f2',
+    onSecondary: '#f2f2f2',
+    onBackground: '#1c1c1e',
     error: '#D50000',
     warning: '#F49F14',
     success: '#43A047',
-    primary: '#6600CA',
-    secondary: '#ffffff',
     gray: {
       n50: '#FAFAFA',
       n100: '#F5F5F5',
@@ -20,4 +25,4 @@ export default {
       n900: '#212121'
     }
   }
-};
+} as DefaultTheme;
