@@ -17,7 +17,6 @@ npx react-native init MyApp --template react-native-template-nave-typescript
 - [React-navigation](https://github.com/styled-components)
 - [Reactotron](https://github.com/infinitered/reactotron)
 - [React-Native-Vector-Icons](https://github.com/oblador/react-native-vector-icons)
-- [React-hook-form](https://github.com/react-hook-form/react-hook-form)
 
 ## :computer: Code pattern
 
