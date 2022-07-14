@@ -79,16 +79,6 @@ const InputComponent: ForwardRefRenderFunction<InputRef, InputComponentProps> = 
           onBlur={() => setIsFocused(false)}
           testID={testID}
         />
-
-        {callToAction && (
-          <TouchableOpacity style={{ marginRight: 8 }} onPress={() => callToAction()}>
-            {/* <Icon
-              name={secureTextEntry ? 'eye' : 'eye-slash'}
-              size={20}
-              color={editable ? (isFocused ? colors.primary : colors.gray.n500) : colors.gray.n200}
-            /> */}
-          </TouchableOpacity>
-        )}
       </InputContainer>
 
       {error && (
