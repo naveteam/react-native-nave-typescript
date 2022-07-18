@@ -16,10 +16,6 @@ npx react-native init MyApp --template react-native-template-nave-typescript
 - [Styled-components](https://styled-components.com/)
 - [React-navigation](https://github.com/styled-components)
 - [Reactotron](https://github.com/infinitered/reactotron)
-- [React-Native-Vector-Icons](https://github.com/oblador/react-native-vector-icons)
-- [React-hook-form](https://github.com/react-hook-form/react-hook-form)
-- [Storybook](https://github.com/storybookjs/storybook/)
-
 
 ## :computer: Code pattern
 
@@ -73,19 +69,10 @@ yarn android
 ```
 
 iOS
+
 ```sh
 yarn ios
 ```
-
-Running the storybook
-
-In the app-module.tsx file, change the default export to the following content
-
-```js
-export { default } from '../storybook';
-```
-
-Then, you just need to re-run yout application.
 
 Android
 
@@ -94,9 +81,9 @@ yarn android
 ```
 
 iOS
+
 ```sh
 yarn ios
 ```
-
 
 In [package.json](https://github.com/naveteam/react-native-nave-typescript/blob/main/template/package.json) on the `scripts` section there are more scripts to manage the application.

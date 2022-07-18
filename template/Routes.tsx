@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const { Navigator, Screen } = createStackNavigator();
 
-import { Home, Form } from 'src/screens';
+import { Home } from 'src/screens';
 
 import { theme } from 'src/theme';
 
@@ -15,7 +15,6 @@ const ScreenOptions = () => ({
 const Routes: FC = () => (
   <Navigator screenOptions={ScreenOptions}>
     <Screen name='Home' component={Home} />
-    <Screen name='Form' component={Form} />
   </Navigator>
 );
 

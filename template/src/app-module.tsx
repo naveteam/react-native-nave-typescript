@@ -41,5 +41,3 @@ export default (): JSX.Element => (
     </AppProviders>
   </ThemeProvider>
 );
-
-//export { default } from '../storybook';
