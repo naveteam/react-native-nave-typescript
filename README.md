@@ -87,3 +87,19 @@ yarn ios
 ```
 
 In [package.json](https://github.com/naveteam/react-native-nave-typescript/blob/main/template/package.json) on the `scripts` section there are more scripts to manage the application.
+
+Running tests
+
+Android
+
+```sh
+yarn detox-android-release
+
+```
+
+iOS
+
+```sh
+yarn detox-ios-debug
+
+```

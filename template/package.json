@@ -13,7 +13,7 @@
     "prettier": "prettier --write '**/*.{js,ts,tsx}' --ignore-path .gitignore",
     "pod-install": "cd ios && pod install && cd ..",
     "commit": "npx git-cz",
-    "detox-ios-debug": "detox test --configuration 'ios.release' ",
+    "detox-ios-release": "detox test --configuration 'ios.release' ",
     "detox-android-debug": "detox test --configuration 'android.debug' "
   },
   "dependencies": {
