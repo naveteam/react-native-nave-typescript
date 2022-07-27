@@ -93,6 +93,9 @@ Running tests
 Android
 
 ```sh
+detox build --configuration "android.release"
+
+
 yarn detox-android-release
 
 ```
@@ -100,6 +103,10 @@ yarn detox-android-release
 iOS
 
 ```sh
-yarn detox-ios-debug
+
+detox build --configuration "ios.release"
+
+
+yarn detox-ios-release
 
 ```

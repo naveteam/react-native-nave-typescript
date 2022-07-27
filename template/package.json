@@ -14,7 +14,7 @@
     "pod-install": "cd ios && pod install && cd ..",
     "commit": "npx git-cz",
     "detox-ios-release": "detox test --configuration 'ios.release' ",
-    "detox-android-debug": "detox test --configuration 'android.debug' "
+    "detox-android-release": "detox test --configuration 'android.release' "
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
